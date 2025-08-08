@@ -660,6 +660,7 @@ body:has(.spollers__title--header.--spoller-active) main::before {
 }
 .top-header__body {
   display: flex;
+  gap: 2.5rem;
 }
 .top-header__left {
   flex: 1 1 auto;
@@ -2833,9 +2834,6 @@ textarea.input {
   .slide-home__description {
     font-size: 0.75rem;
   }
-  .top-header__body {
-    gap: 1.25rem;
-  }
   .top-header__search {
     font-size: 0.875rem;
   }
@@ -3063,9 +3061,6 @@ textarea.input {
   }
   .slide-home__description {
     font-size: clamp( 0.75rem , 0.68067590988125rem  +  0.3466204506vw , 1rem );
-  }
-  .top-header__body {
-    gap: clamp( 1.25rem , 0.90337954939375rem  +  1.733102253vw , 2.5rem );
   }
   .top-header__search {
     font-size: clamp( 0.875rem , 0.8403379549375rem  +  0.1733102253vw , 1rem );
@@ -3373,9 +3368,6 @@ textarea.input {
   }
   .slide-home__description {
     font-size: 1rem;
-  }
-  .top-header__body {
-    gap: 2.5rem;
   }
   .top-header__search {
     font-size: 1rem;
