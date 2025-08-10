@@ -7,10 +7,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Дроны</title>
-		<script type="module" crossorigin="" src="./js/catalog-lvl-one.min.js?v=1754846157024"></script>
-		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1754846157024">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1754846157024">
-		<link rel="stylesheet" crossorigin="" href="./css/catalog-lvl-one.min.css?v=1754846157024">
+		<script type="module" crossorigin="" src="./js/catalog-lvl-one.min.js?v=1754860519702"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1754860519702">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1754860519702">
+		<link rel="stylesheet" crossorigin="" href="./css/catalog-lvl-one.min.css?v=1754860519702">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -338,26 +338,28 @@
 						</div>
 					</div>
 				</section>
-				<section class="catalog__content content-catalog">
-					<div class="content-catalog__container">
-						<div class="content-catalog__select">
-							<select name="filter-form[filter]" form="filter-form" data-fls-select="" data-fls-select-modif="form">
+				<section data-fls-filter="" class="catalog__content content-catalog">
+					<div data-fls-grid="" class="content-catalog__container">
+						<div data-fls-grid-col-start="11" data-fls-grid-col-end="12" class="content-catalog__select">
+							<select name="filter-form[select]" form="filter-form" data-fls-select="" data-fls-select-modif="form">
 								<option value="1" selected>По популярности</option>
 								<option value="2">Сначала дешевые</option>
 								<option value="3">Сначала дорогие</option>
 							</select>
 						</div>
-						<aside class="content-catalog__filter filter">
+						<aside data-fls-grid-col="3" data-fls-grid-row-start="2" class="content-catalog__filter filter">
 							<form id="filter-form" class="filter__form" action="#" method="get">
 								<div class="filter__fromdo fromdo">
 									<div class="fromdo__title title-filter">Стоимость, ₽</div>
-									<input data-fls-input="" autocomplete="off" type="number" name="filter-form[price_min]" data-error="Ошибка" placeholder="От" class="fromdo__input">
-									<input data-fls-input="" autocomplete="off" type="number" name="filter-form[price_max]" data-error="Ошибка" placeholder="До" class="fromdo__input">
+									<div class="fromdo__body">
+										<input data-fls-input="" autocomplete="off" type="text" name="filter-form[price_min]" data-error="Ошибка" placeholder="От" class="fromdo__input input-filter">
+										<input data-fls-input="" autocomplete="off" type="text" name="filter-form[price_max]" data-error="Ошибка" placeholder="До" class="fromdo__input input-filter">
+									</div>
 								</div>
 								<div data-fls-radio="" class="filter__options options">
 									<div class="options__title title-filter">Стоимость, ₽</div>
 									<label class="options__item">
-										<input class="options__input" checked type="radio" value="1" name="filter-form[option]">
+										<input class="options__input" type="radio" value="1" name="filter-form[option]">
 										<span class="options__text">До 3 000 ₽</span>
 									</label>
 									<label class="options__item">
@@ -373,9 +375,69 @@
 										<span class="options__text">Более 50 000 ₽</span>
 									</label>
 								</div>
+								<div class="filter__search search">
+									<div class="search__title title-filter">Бренд</div>
+									<div class="search__body">
+										<input data-fls-input="" type="search" name="filter-form[search]" data-error="Ошибка" placeholder="Найти" class="search__input input-filter">
+									</div>
+									<div class="search__options">
+										<div data-fls-showmore="" class="search__showmore">
+											<div data-fls-showmore-content="160" class="search__content">
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="Autel" name="filter-form[brend]">
+													<span class="checkbox-search__text">Autel</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="Art-Tech" name="filter-form[brend]">
+													<span class="checkbox-search__text">Art-Tech</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="BetaFPV" name="filter-form[brend]">
+													<span class="checkbox-search__text">BetaFPV</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="Copterparts" name="filter-form[brend]">
+													<span class="checkbox-search__text">Copterparts</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="DarwinFPV" name="filter-form[brend]">
+													<span class="checkbox-search__text">DarwinFPV</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="Diatone" name="filter-form[brend]">
+													<span class="checkbox-search__text">Diatone</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="DJI" name="filter-form[brend]">
+													<span class="checkbox-search__text">DJI</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="EFT" name="filter-form[brend]">
+													<span class="checkbox-search__text">EFT</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="FIMI" name="filter-form[brend]">
+													<span class="checkbox-search__text">FIMI</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="FYXL" name="filter-form[brend]">
+													<span class="checkbox-search__text">FYXL</span>
+												</label>
+												<label data-fls-checkbox="" class="search__checkbox checkbox-search">
+													<input data-error="Ошибка" class="checkbox-search__input" type="checkbox" value="GEPRC" name="filter-form[brend]">
+													<span class="checkbox-search__text">GEPRC</span>
+												</label>
+											</div>
+											<button hidden data-fls-showmore-button="" type="button" class="search__more --icon-spoller-right">
+												<span>Еще</span>
+												<span>Свернуть</span>
+											</button>
+										</div>
+									</div>
+								</div>
 							</form>
 						</aside>
-						<div class="content-catalog__products products">
+						<div data-fls-grid-col="9" class="content-catalog__products products">
 							<div class="products__body" data-fls-grid="">
 								<a href="" class="products__item product-card" data-fls-grid-col="3" data-fls-grid-col-tablet="4" data-fls-grid-col-mobile="6">
 									<figure class="product-card__cover">
