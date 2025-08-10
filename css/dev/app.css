@@ -2481,6 +2481,12 @@ textarea.input {
   .pages__breadcrumbs {
     padding-bottom: 2.5rem;
   }
+  .pages__content {
+    padding-top: 2.5rem;
+  }
+  .pages__content {
+    padding-bottom: 2.5rem;
+  }
   .home__popular {
     padding-top: 3.125rem;
   }
@@ -2626,6 +2632,12 @@ textarea.input {
     padding-top: clamp( 2rem , 1.3067590987875rem  +  3.4662045061vw , 4.5rem );
   }
   .pages__breadcrumbs {
+    padding-bottom: clamp( 2.5rem , 1.8067590987875rem  +  3.4662045061vw , 5rem );
+  }
+  .pages__content {
+    padding-top: clamp( 2.5rem , 1.8067590987875rem  +  3.4662045061vw , 5rem );
+  }
+  .pages__content {
     padding-bottom: clamp( 2.5rem , 1.8067590987875rem  +  3.4662045061vw , 5rem );
   }
   .home__popular {
@@ -2833,6 +2845,12 @@ textarea.input {
     padding-top: 4.5rem;
   }
   .pages__breadcrumbs {
+    padding-bottom: 5rem;
+  }
+  .pages__content {
+    padding-top: 5rem;
+  }
+  .pages__content {
     padding-bottom: 5rem;
   }
   .home__popular {

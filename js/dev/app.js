@@ -4890,15 +4890,19 @@ function initSliders() {
           slidesPerView: 2,
           spaceBetween: 20
         },
-        480: {
-          slidesPerView: 4,
+        /*480: {
+        	slidesPerView: 4,
+        	spaceBetween: 20,
+        },*/
+        620: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 5,
           spaceBetween: 20
         },
         992: {
-          slidesPerView: 6,
-          spaceBetween: 20
-        },
-        1268: {
           slidesPerView: 6,
           spaceBetween: 20
         }
