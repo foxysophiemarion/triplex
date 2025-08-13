@@ -2,6 +2,9 @@ import "./app.min.js";
 import "./slider.min.js";
 import "./showmore.min.js";
 /* empty css                */
+function getDefaultExportFromCjs(x) {
+  return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
+}
 /*!
  * lightgallery | 2.8.3 | March 1st 2025
  * http://www.lightgalleryjs.com/
@@ -2244,9 +2247,6 @@ var LightGallery = (
 );
 function lightGallery(el, options) {
   return new LightGallery(el, options);
-}
-function getDefaultExportFromCjs(x) {
-  return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
 }
 var lgThumbnail_min$1 = { exports: {} };
 /**
