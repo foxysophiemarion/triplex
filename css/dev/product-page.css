@@ -1183,13 +1183,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   height: 100%;
   object-fit: contain;
 }
-.gallery-product__slide:hover {
-  background-color: var(--bg-color2);
-}
-.gallery-product__slide:hover::before {
-  transform: scale(1.1);
-  border-color: var(--button-color);
-}
 .gallery-product__title {
   position: absolute;
   left: 1.25rem;
@@ -1218,9 +1211,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   color: var(--white-text);
   background-color: var(--button-color);
 }
-[data-fls-addtocart-button]:hover {
-  background-color: rgb(168, 29, 34);
-}
 
 @keyframes shake {
   0%, 100% {
@@ -1246,10 +1236,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   border: 0.0625rem solid var(--main-color);
   border-radius: 0.3125rem;
   transition: color 0.3s, background-color 0.3s;
-}
-.navigation-product__scrollto:hover {
-  color: var(--white-text);
-  background-color: var(--main-color);
 }
 .navigation-product__scrollto.--tab-active {
   color: var(--white-text);
@@ -1693,5 +1679,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 @media (any-hover: hover) {
   .quantity__button:hover::before, .quantity__button:hover::after {
     background-color: rgba(0, 0, 0, 0.5);
+  }
+  .gallery-product__slide:hover {
+    background-color: var(--bg-color2);
+  }
+  .gallery-product__slide:hover::before {
+    transform: scale(1.1);
+    border-color: var(--button-color);
+  }
+  [data-fls-addtocart-button]:hover {
+    background-color: rgb(168, 29, 34);
+  }
+  .navigation-product__scrollto:hover {
+    color: var(--white-text);
+    background-color: var(--main-color);
   }
 }

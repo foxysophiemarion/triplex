@@ -7,11 +7,11 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Контакты</title>
-		<script type="module" crossorigin="" src="./js/app.min.js?v=1755092143308"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1755092143308">
-		<link rel="stylesheet" crossorigin="" href="./css/contacts-page.min.css?v=1755092143308">
-		<link rel="stylesheet" crossorigin="" href="./css/feedback.min.css?v=1755092143308">
-		<link rel="stylesheet" crossorigin="" href="./css/breadcrumbs.min.css?v=1755092143308">
+		<script type="module" crossorigin="" src="./js/app.min.js?v=1755199090509"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1755199090509">
+		<link rel="stylesheet" crossorigin="" href="./css/contacts-page.min.css?v=1755199090509">
+		<link rel="stylesheet" crossorigin="" href="./css/feedback.min.css?v=1755199090509">
+		<link rel="stylesheet" crossorigin="" href="./css/breadcrumbs.min.css?v=1755199090509">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -170,12 +170,17 @@
 									<a data-fls-button="" data-fls-dynamic=".menu__body,767.98" href="#" class="header__button button">Связаться с
 							нами</a>
 								</div>
-								<div data-fls-dynamic=".top-header__end,991.98" class="top-header__profile profile">
-									<a data-fls-button="" href="#" class="profile__button --icon-profile"></a>
+								<div data-fls-dynamic=".top-header__end,991.98" class="top-header__profile profile-icon">
+									<a data-fls-button="" href="#" class="profile-icon__button --icon-profile"></a>
+									<div class="profile-icon__body">
+										<a href="" class="profile-icon__link">Личные данные</a>
+										<a href="" class="profile-icon__link">Заказы</a>
+										<a href="" class="profile-icon__link">Выйти</a>
+									</div>
 								</div>
-								<div data-fls-dynamic=".top-header__end,991.98" class="top-header__cart cart">
-									<a data-fls-button="" href="#" class="cart__button --icon-cart">
-										<span class="cart__quantity" data-fls-addtocart="">0</span>
+								<div data-fls-dynamic=".top-header__end,991.98" class="top-header__cart cart-icon">
+									<a data-fls-button="" href="cart-page.html" class="cart-icon__button --icon-cart">
+										<span class="cart-icon__quantity" data-fls-addtocart="">0</span>
 									</a>
 								</div>
 							</div>
@@ -259,7 +264,7 @@
 								</p>
 								<form class="feedback-page__form" data-fls-form="ajax" data-fls-form-popup="popup" method="POST" action="#">
 									<div data-fls-grid="" class="feedback-page__body">
-										<input data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" data-fls-input-mask="+7(999) 999-9999" required type="text" name="form[phone]" data-fls-form-errtext="Введите номер" placeholder="Телефон" class="feedback-page__input">
+										<input data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" data-fls-input-mask="+7(999) 999-9999" required type="tel" name="form[phone]" data-fls-form-errtext="Введите номер" placeholder="Телефон" class="feedback-page__input">
 										<input data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" type="text" name="form[name]" placeholder="Имя" class="feedback-page__input">
 										<button data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" type="submit" class="feedback-page__button button">Оставить
 							заявку</button>
@@ -352,7 +357,7 @@
 							</div>
 							<form class="feedback-footer__form" data-fls-form="ajax" data-fls-form-popup="popup" method="POST" action="#">
 								<div class="feedback-footer__body">
-									<input data-fls-input-mask="+7(999) 999-9999" required type="text" name="form[phone]" data-fls-form-errtext="Введите номер" placeholder="Телефон" class="feedback-footer__input">
+									<input data-fls-input-mask="+7(999) 999-9999" required type="tel" name="form[phone]" data-fls-form-errtext="Введите номер" placeholder="Телефон" class="feedback-footer__input">
 									<input type="text" name="form[name]" placeholder="Имя" class="feedback-footer__input">
 									<button type="submit" class="feedback-footer__button">Оставить заявку</button>
 									<label data-fls-checkbox="" class="feedback-footer__checkbox checkbox checkbox--footer">
@@ -383,10 +388,16 @@
 		</div>
 		<ul id="fls-dev-panel">
 			<li>
+				<a href="profile-page.html">profile-page (Личный кабинет)</a>
+			</li>
+			<li>
 				<a href="production-page.html">production-page (Производство)</a>
 			</li>
 			<li>
 				<a href="product-page.html">product-page (DJI Mavic 3T)</a>
+			</li>
+			<li>
+				<a href="pay-page.html">pay-page (Оформление заказа)</a>
 			</li>
 			<li>
 				<a href="index.html">index (Главная)</a>
@@ -405,6 +416,9 @@
 			</li>
 			<li>
 				<a href="catalog-lvl-one.html">catalog-lvl-one (Дроны)</a>
+			</li>
+			<li>
+				<a href="cart-page.html">cart-page (Корзина)</a>
 			</li>
 			<li>
 				<a href="brends-catalog.html">brends-catalog (Дроны DJI)</a>

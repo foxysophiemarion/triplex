@@ -329,124 +329,6 @@ function tabs() {
   }
 }
 window.addEventListener("load", tabs);
-let formValidate = {
-  getErrors(form) {
-    let error = 0;
-    let formRequiredItems = form.querySelectorAll("[required]");
-    if (formRequiredItems.length) {
-      formRequiredItems.forEach((formRequiredItem) => {
-        if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
-          error += this.validateInput(formRequiredItem);
-        }
-      });
-    }
-    return error;
-  },
-  validateInput(formRequiredItem) {
-    let error = 0;
-    if (formRequiredItem.type === "email") {
-      formRequiredItem.value = formRequiredItem.value.replace(" ", "");
-      if (this.emailTest(formRequiredItem)) {
-        this.addError(formRequiredItem);
-        this.removeSuccess(formRequiredItem);
-        error++;
-      } else {
-        this.removeError(formRequiredItem);
-        this.addSuccess(formRequiredItem);
-      }
-    } else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
-      this.addError(formRequiredItem);
-      this.removeSuccess(formRequiredItem);
-      error++;
-    } else if (formRequiredItem.name === "form[phone]") {
-      const digits = formRequiredItem.value.replace(/[^\d]/g, "").slice(1);
-      if (digits.length !== 10) {
-        this.addError(formRequiredItem);
-        this.removeSuccess(formRequiredItem);
-        error++;
-      } else {
-        this.removeError(formRequiredItem);
-        this.addSuccess(formRequiredItem);
-      }
-    } else {
-      if (!formRequiredItem.value.trim()) {
-        this.addError(formRequiredItem);
-        this.removeSuccess(formRequiredItem);
-        error++;
-      } else {
-        this.removeError(formRequiredItem);
-        this.addSuccess(formRequiredItem);
-      }
-    }
-    return error;
-  },
-  addError(formRequiredItem) {
-    formRequiredItem.classList.add("--form-error");
-    formRequiredItem.parentElement.classList.add("--form-error");
-    let inputError = formRequiredItem.parentElement.querySelector("[data-fls-form-error]");
-    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-    if (formRequiredItem.tagName === "INPUT" || formRequiredItem.tagName === "TEXTAREA") {
-      const errorText = formRequiredItem.dataset.flsFormErrtext || "Поле обязательно";
-      formRequiredItem.placeholder = errorText;
-    }
-    if (formRequiredItem.type === "checkbox" && formRequiredItem.dataset.flsFormErrtext) {
-      formRequiredItem.parentElement.insertAdjacentHTML("beforeend", `<div data-fls-form-error>${formRequiredItem.dataset.flsFormErrtext}</div>`);
-    }
-  },
-  removeError(formRequiredItem) {
-    formRequiredItem.classList.remove("--form-error");
-    formRequiredItem.parentElement.classList.remove("--form-error");
-    let inputError = formRequiredItem.parentElement.querySelector("[data-fls-form-error]");
-    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-    if (formRequiredItem.tagName === "INPUT" || formRequiredItem.tagName === "TEXTAREA") {
-      const originalPlaceholder = formRequiredItem.dataset.originalPlaceholder || formRequiredItem.placeholder;
-      if (!formRequiredItem.dataset.originalPlaceholder) {
-        formRequiredItem.dataset.originalPlaceholder = originalPlaceholder;
-      }
-      formRequiredItem.placeholder = originalPlaceholder;
-    }
-  },
-  addSuccess(formRequiredItem) {
-    formRequiredItem.classList.add("--form-success");
-    formRequiredItem.parentElement.classList.add("--form-success");
-  },
-  removeSuccess(formRequiredItem) {
-    formRequiredItem.classList.remove("--form-success");
-    formRequiredItem.parentElement.classList.remove("--form-success");
-  },
-  formClean(form) {
-    form.reset();
-    setTimeout(() => {
-      let inputs = form.querySelectorAll("input,textarea");
-      for (let index = 0; index < inputs.length; index++) {
-        const el = inputs[index];
-        el.parentElement.classList.remove("--form-focus");
-        el.classList.remove("--form-focus");
-        if (el.dataset.originalPlaceholder) {
-          el.placeholder = el.dataset.originalPlaceholder;
-        }
-        formValidate.removeError(el);
-      }
-      let checkboxes = form.querySelectorAll('input[type="checkbox"]');
-      if (checkboxes.length) {
-        checkboxes.forEach((checkbox) => {
-          checkbox.checked = false;
-        });
-      }
-      if (window["flsSelect"]) {
-        let selects = form.querySelectorAll("select[data-fls-select]");
-        if (selects.length) {
-          selects.forEach((select) => {
-            window["flsSelect"].selectBuild(select);
-          });
-        }
-      }
-    }, 0);
-  },
-  emailTest(formRequiredItem) {
-    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
-  }
-};
 function spollers() {
   const spollersArray = document.querySelectorAll("[data-fls-spollers]");
   if (spollersArray.length > 0) {
@@ -3430,6 +3312,191 @@ function inputMask() {
   });
 }
 document.querySelector("input[data-fls-input-mask]") ? window.addEventListener("load", inputMask) : null;
+let formValidate = {
+  getErrors(form) {
+    let error = 0;
+    let formRequiredItems = form.querySelectorAll("[required]");
+    if (formRequiredItems.length) {
+      formRequiredItems.forEach((formRequiredItem) => {
+        if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
+          error += this.validateInput(formRequiredItem);
+        }
+      });
+    }
+    return error;
+  },
+  validateInput(formRequiredItem) {
+    let error = 0;
+    if (formRequiredItem.type === "email") {
+      formRequiredItem.value = formRequiredItem.value.replace(" ", "");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formRequiredItem.value)) {
+        this.addError(formRequiredItem);
+        this.removeSuccess(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+        this.addSuccess(formRequiredItem);
+      }
+    } else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
+      this.addError(formRequiredItem);
+      this.removeSuccess(formRequiredItem);
+      error++;
+    } else if (formRequiredItem.type === "tel") {
+      const digits = formRequiredItem.value.replace(/[^\d]/g, "").slice(1);
+      if (digits.length !== 10) {
+        this.addError(formRequiredItem);
+        this.removeSuccess(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+        this.addSuccess(formRequiredItem);
+      }
+    } else {
+      if (!formRequiredItem.value.trim()) {
+        this.addError(formRequiredItem);
+        this.removeSuccess(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+        this.addSuccess(formRequiredItem);
+      }
+    }
+    return error;
+  },
+  addError(formRequiredItem) {
+    formRequiredItem.classList.add("--form-error");
+    formRequiredItem.parentElement.classList.add("--form-error");
+    let inputError = formRequiredItem.parentElement.querySelector("[data-fls-form-error]");
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
+    if (formRequiredItem.tagName === "INPUT" || formRequiredItem.tagName === "TEXTAREA") {
+      const errorText = formRequiredItem.dataset.flsFormErrtext || "Поле обязательно";
+      formRequiredItem.placeholder = errorText;
+    }
+    if (formRequiredItem.type === "checkbox" && formRequiredItem.dataset.flsFormErrtext) {
+      formRequiredItem.parentElement.insertAdjacentHTML("beforeend", `<div data-fls-form-error>${formRequiredItem.dataset.flsFormErrtext}</div>`);
+    }
+  },
+  removeError(formRequiredItem) {
+    formRequiredItem.classList.remove("--form-error");
+    formRequiredItem.parentElement.classList.remove("--form-error");
+    let inputError = formRequiredItem.parentElement.querySelector("[data-fls-form-error]");
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
+    if (formRequiredItem.tagName === "INPUT" || formRequiredItem.tagName === "TEXTAREA") {
+      const originalPlaceholder = formRequiredItem.dataset.originalPlaceholder || formRequiredItem.placeholder;
+      if (!formRequiredItem.dataset.originalPlaceholder) {
+        formRequiredItem.dataset.originalPlaceholder = originalPlaceholder;
+      }
+      formRequiredItem.placeholder = originalPlaceholder;
+    }
+  },
+  addSuccess(formRequiredItem) {
+    formRequiredItem.classList.add("--form-success");
+    formRequiredItem.parentElement.classList.add("--form-success");
+  },
+  removeSuccess(formRequiredItem) {
+    formRequiredItem.classList.remove("--form-success");
+    formRequiredItem.parentElement.classList.remove("--form-success");
+  },
+  formClean(form) {
+    form.reset();
+    setTimeout(() => {
+      let inputs = form.querySelectorAll("input,textarea");
+      for (let index = 0; index < inputs.length; index++) {
+        const el = inputs[index];
+        el.parentElement.classList.remove("--form-focus");
+        el.classList.remove("--form-focus");
+        if (el.dataset.originalPlaceholder) {
+          el.placeholder = el.dataset.originalPlaceholder;
+        }
+        formValidate.removeError(el);
+      }
+      let checkboxes = form.querySelectorAll('input[type="checkbox"]');
+      if (checkboxes.length) {
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+      }
+      if (window["flsSelect"]) {
+        let selects = form.querySelectorAll("select[data-fls-select]");
+        if (selects.length) {
+          selects.forEach((select) => {
+            window["flsSelect"].selectBuild(select);
+          });
+        }
+      }
+    }, 0);
+  },
+  emailTest(formRequiredItem) {
+    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
+  }
+};
+let currentStep = 0;
+let steps = null;
+let showStep = null;
+let updateButtons = null;
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#form-step");
+  if (!form) return;
+  steps = form.querySelectorAll(".form-step__body");
+  const prevButtons = form.querySelectorAll(".left-step__prev");
+  const nextButtons = form.querySelectorAll(".left-step__next");
+  form.querySelectorAll(".navigation-step__item");
+  let isProcessing = false;
+  showStep = function() {
+    steps.forEach((step, index) => {
+      if (index === currentStep) {
+        step.classList.add("active");
+      } else {
+        step.classList.remove("active");
+      }
+    });
+    updateButtons();
+  };
+  updateButtons = function() {
+    prevButtons.forEach((button) => {
+      button.disabled = currentStep === 0;
+    });
+    nextButtons.forEach((button) => {
+      button.disabled = currentStep === steps.length - 1;
+    });
+  };
+  showStep();
+  prevButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (currentStep > 0 && !isProcessing) {
+        isProcessing = true;
+        currentStep--;
+        showStep();
+        updateButtons();
+        setTimeout(() => {
+          isProcessing = false;
+        }, 300);
+      }
+    });
+  });
+  nextButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (validateCurrentStep() && currentStep < steps.length - 1 && !isProcessing) {
+        isProcessing = true;
+        currentStep++;
+        showStep();
+        updateButtons();
+        setTimeout(() => {
+          isProcessing = false;
+        }, 300);
+      }
+    });
+  });
+  function validateCurrentStep() {
+    const currentStepElement = steps[currentStep];
+    const errorCount = formValidate.getErrors(currentStepElement);
+    return errorCount === 0;
+  }
+});
 function formInit() {
   function formSubmit() {
     const forms = document.forms;
@@ -3443,6 +3510,10 @@ function formInit() {
         form.addEventListener("reset", function(e) {
           const form2 = e.target;
           formValidate.formClean(form2);
+          if (form2.id === "form-step") {
+            currentStep = 0;
+            showStep();
+          }
         });
       }
     }
@@ -3480,17 +3551,19 @@ function formInit() {
     }
     function formSent(form, responseResult = ``) {
       document.dispatchEvent(new CustomEvent("formSent", {
-        detail: {
-          form
-        }
+        detail: { form }
       }));
+      formValidate.formClean(form);
+      if (form.id === "form-step" && steps && showStep) {
+        currentStep = steps.length - 1;
+        showStep();
+      }
       setTimeout(() => {
         if (window.flsPopup) {
           const popup = form.dataset.flsFormPopup;
           popup ? window.flsPopup.open(popup) : null;
         }
       }, 0);
-      formValidate.formClean(form);
     }
   }
   function formFieldsInit() {
@@ -3524,8 +3597,45 @@ function formInit() {
 }
 document.querySelector("[data-fls-form]") ? window.addEventListener("load", formInit) : null;
 function addToCart() {
+  const CART_KEY = "cart";
   const cartCounter = document.querySelector("[data-fls-addtocart]");
-  const cartIcon = document.querySelector(".top-header__cart .cart__button");
+  const cartIcon = document.querySelector(".top-header__cart .cart-icon__button");
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch {
+      return [];
+    }
+  }
+  function setCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+  function getCartCount() {
+    return getCart().reduce((sum, i) => sum + (i.qty || 0), 0);
+  }
+  function updateCartCounter() {
+    if (cartCounter) cartCounter.textContent = getCartCount();
+  }
+  function saveToCart(product) {
+    const cart = getCart();
+    const existing = cart.find((i) => i.id === product.id);
+    if (existing) {
+      existing.qty += product.qty;
+      existing.title = product.title || existing.title;
+      existing.img = product.img || existing.img;
+      existing.price = product.price || existing.price;
+    } else {
+      cart.push({
+        id: product.id,
+        title: product.title,
+        img: product.img,
+        price: product.price,
+        qty: product.qty
+      });
+    }
+    setCart(cart);
+    updateCartCounter();
+  }
   function detectCartPage() {
     if (document.querySelector("[data-fls-cart]")) return true;
     if (document.body.classList.contains("cart") || document.body.classList.contains("page-cart")) return true;
@@ -3539,35 +3649,48 @@ function addToCart() {
       if (q) q.classList.add("_hidden");
     });
   }
+  updateCartCounter();
+  function getProductMeta(prodEl) {
+    var _a, _b, _c, _d, _e;
+    const id = (prodEl == null ? void 0 : prodEl.dataset.flsProductId) || "mavic-3t";
+    const title = (prodEl == null ? void 0 : prodEl.dataset.flsProductTitle) || ((_b = (_a = document.querySelector(".breadcrumbs__title")) == null ? void 0 : _a.textContent) == null ? void 0 : _b.trim()) || "DJI Mavic 3T";
+    const priceAttr = prodEl == null ? void 0 : prodEl.dataset.flsProductPrice;
+    let price = priceAttr ? parseInt(priceAttr, 10) : null;
+    if (!price) {
+      const priceText = ((_c = document.querySelector(".price-product__title")) == null ? void 0 : _c.textContent) || "690 000 ₽";
+      price = parseInt(priceText.replace(/\D+/g, ""), 10) || 69e4;
+    }
+    const gallery = prodEl == null ? void 0 : prodEl.closest(".gallery-product");
+    let img = ((_d = gallery == null ? void 0 : gallery.querySelector(".swiper-slide-active img")) == null ? void 0 : _d.getAttribute("src")) || ((_e = gallery == null ? void 0 : gallery.querySelector(".swiper-slide img")) == null ? void 0 : _e.getAttribute("src")) || (prodEl == null ? void 0 : prodEl.dataset.flsProductImg) || "/assets/img/product/01.png";
+    return { id, title, price, img };
+  }
   document.addEventListener("click", (e) => {
     const addBtn = e.target.closest("[data-fls-addtocart-button]");
     if (!addBtn) return;
     const prod = addBtn.closest("[data-fls-addtocart-product]");
     const qBlock = prod ? prod.querySelector("[data-fls-quantity]") : null;
     const input = prod ? prod.querySelector("[data-fls-addtocart-quantity], [data-fls-quantity-value]") : null;
-    const gallery = prod.closest(".gallery-product");
-    let img = null;
+    const gallery = prod == null ? void 0 : prod.closest(".gallery-product");
+    let imgEl = null;
     if (gallery) {
       const activeSlide = gallery.querySelector(".swiper-slide-active img");
-      if (activeSlide) img = activeSlide;
+      if (activeSlide) imgEl = activeSlide;
     }
-    if (img && cartIcon) {
-      flyToCart(img, cartIcon);
+    if (imgEl && cartIcon) {
+      flyToCart(imgEl, cartIcon);
     }
     if (qBlock && qBlock.classList.contains("_hidden")) {
       qBlock.classList.remove("_hidden");
       qBlock.classList.add("_active");
       if (input) input.value = 1;
-      if (cartCounter) {
-        cartCounter.textContent = (parseInt(cartCounter.textContent, 10) || 0) + 1;
-      }
+      const meta2 = getProductMeta(prod);
+      saveToCart({ ...meta2, qty: 1 });
       addBtn.textContent = "Добавить ещё";
       return;
     }
     const qty = input ? parseInt(input.value, 10) || 1 : 1;
-    if (cartCounter) {
-      cartCounter.textContent = (parseInt(cartCounter.textContent, 10) || 0) + qty;
-    }
+    const meta = getProductMeta(prod);
+    saveToCart({ ...meta, qty });
     addBtn.textContent = "Добавить ещё";
   });
   function flyToCart(productImg, cartIcon2) {

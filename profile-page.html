@@ -6,11 +6,11 @@
 		<meta name="robots" content="noindex, nofollow">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Доставка и оплата</title>
-		<script type="module" crossorigin="" src="./js/app.min.js?v=1755199090509"></script>
+		<title>Личный кабинет</title>
+		<script type="module" crossorigin="" src="./js/profile-page.min.js?v=1755199090509"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/app.min.js?v=1755199090509">
 		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1755199090509">
-		<link rel="stylesheet" crossorigin="" href="./css/delivery-page.min.css?v=1755199090509">
-		<link rel="stylesheet" crossorigin="" href="./css/feedback.min.css?v=1755199090509">
+		<link rel="stylesheet" crossorigin="" href="./css/profile-page.min.css?v=1755199090509">
 		<link rel="stylesheet" crossorigin="" href="./css/breadcrumbs.min.css?v=1755199090509">
 	</head>
 	<body>
@@ -220,247 +220,38 @@
 					</div>
 				</div>
 			</header>
-			<main class="pages page--delivery delivery-page">
-				<div data-fls-breadcrumbs="" class="pages__breadcrumbs breadcrumbs breadcrumbs-pages">
+			<main class="pages page--profile profile">
+				<div data-fls-breadcrumbs="" class="pages__breadcrumbs breadcrumbs">
 					<div class="breadcrumbs__container">
 						<div class="breadcrumbs__body">
 							<a data-fls-button="" href="#" class="breadcrumbs__button breadcrumbs__button--hover">Главная</a>
 							<span class="breadcrumbs__dotted"></span>
-							<span class="breadcrumbs__button breadcrumbs__button--active">Доставка и оплата</span>
+							<span class="breadcrumbs__button breadcrumbs__button--active">Личный кабинет</span>
+							<span class="breadcrumbs__dotted"></span>
+							<span class="breadcrumbs__button breadcrumbs__button--active dynamic-title"></span>
 						</div>
-						<h2 class="breadcrumbs__title title">Доставка и оплата</h2>
+						<h2 class="breadcrumbs__title title dynamic-title"></h2>
 					</div>
 				</div>
-				<section class="delivery-page__paymethod method">
-					<div class="method__container">
-						<h3 class="method__title title-40">Способы оплаты</h3>
-						<div data-fls-grid="" class="method__row row-delivery">
-							<div data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-mobile="12" class="row-delivery__item">
-								<h5 class="row-delivery__title subtitle">По расчетному счёту</h5>
-								<p class="row-delivery__description">
-									Вы можете производить оплату за купленные товары по реквизитам
-						собственного юридического лица (оплата через расчетный счёт). От юридических лиц возможна оплата с
-						НДС
-								</p>
-							</div>
-							<div data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-mobile="12" class="row-delivery__item">
-								<h5 class="row-delivery__title subtitle">Наличный расчёт</h5>
-								<p class="row-delivery__description">
-									Если товар доставляется курьером, то оплата осуществляется наличными
-						курьеру в руки. При получении товара обязательно проверьте комплектацию товара, наличие гарантийного
-						талона и чека
-								</p>
-							</div>
-							<div data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-mobile="12" class="row-delivery__item">
-								<h5 class="row-delivery__title subtitle">Банковской картой</h5>
-								<p class="row-delivery__description">
-									Для выбора оплаты товара с помощью банковской карты на
-						соответствующей странице необходимо нажать кнопку Оплата заказа банковской картой. Оплата происходит
-						через ПАО Сбербанк
-								</p>
-							</div>
-						</div>
-						<div class="method__system system">
-							<h6 class="system__title subtitle">Доступные платежные системы</h6>
-							<div class="system__body">
-								<div class="system__item">
-									<picture>
-										<img alt="Изображение" src="./assets/img/delivery/01.webp" srcset="./assets/img/delivery/01.webp 1x,./assets/img/delivery/01-1x.webp 1x">
-									</picture>
-								</div>
-								<div class="system__item">
-									<picture>
-										<img alt="Изображение" src="./assets/img/delivery/02.webp" srcset="./assets/img/delivery/02.webp 1x,./assets/img/delivery/02-1x.webp 1x">
-									</picture>
-								</div>
-								<div class="system__item">
-									<picture>
-										<img alt="Изображение" src="./assets/img/delivery/03.webp" srcset="./assets/img/delivery/03.webp 1x,./assets/img/delivery/03-1x.webp 1x">
-									</picture>
-								</div>
-								<div class="system__item">
-									<picture>
-										<img alt="Изображение" src="./assets/img/delivery/04.webp" srcset="./assets/img/delivery/04.webp 1x,./assets/img/delivery/04-1x.webp 1x">
-									</picture>
+				<div class="profile__content content-profile">
+					<div class="content-profile__container">
+						<div class="content-profile__body">
+							<div data-fls-tabs="" class="content-profile__tabs tabs-profile">
+								<nav data-fls-tabs-titles="" class="tabs-profile__navigation">
+									<button type="button" class="tabs-profile__title --tab-active">Контактные данные</button>
+									<button type="button" class="tabs-profile__title">Заказы</button>
+									<button type="button" class="tabs-profile__title">Платежные данные</button>
+									<button type="reset" class="tabs-profile__title tabs-profile__quit">Выйти</button>
+								</nav>
+								<div data-fls-tabs-body="" class="tabs-profile__content">
+									<div class="tabs-profile__body">Содержимое первого таба</div>
+									<div class="tabs-profile__body">Содержимое второго таба</div>
+									<div class="tabs-profile__body">Содержимое третьего таба</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</section>
-				<section class="delivery-page__paymethod method">
-					<div class="method__container">
-						<h3 class="method__title title-40">Доставка</h3>
-						<h4 class="method__subtitle subtitle">Способы получения заказа</h4>
-						<div data-fls-grid="" class="method__row row-delivery">
-							<div data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-mobile="12" class="row-delivery__item">
-								<h5 class="row-delivery__title subtitle">Самовывоз из магазина</h5>
-								<p class="row-delivery__description">
-									Вы можете забрать товар в нашем магазине. Список торговых точек,
-						которые принимают заказы от нашей компании появится у Вас в корзине
-								</p>
-							</div>
-							<div data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-mobile="12" class="row-delivery__item">
-								<h5 class="row-delivery__title subtitle">Курьерская доставка</h5>
-								<p class="row-delivery__description">
-									Мы доставим Ваш товар в любую точку в удобное для Вас время.
-						Доставка осуществляется семь дней в неделю
-								</p>
-							</div>
-							<div data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-mobile="12" class="row-delivery__item">
-								<h5 class="row-delivery__title subtitle">Доставка транспортной компанией</h5>
-								<p class="row-delivery__description">
-									Вы можете заказать доставку через СДЭК или другим удобным для вас
-						сервисом (доставка возможно только после полной предоплаты заказанного вами товара)
-								</p>
-							</div>
-						</div>
-						<div class="method__item">
-							<h4 class="method__subtitle subtitle subtitle">Стоимость доставки</h4>
-							<ul class="method__list list-pages">
-								<li class="list-pages__item">
-									Бесплатная доставка по Москве при заказе от 10.000 рублей, менее 10.000
-						рублей
-						— 600 рублей
-								</li>
-								<li class="list-pages__item">
-									Бесплатная доставка по Московской области при заказе от 15.000 рублей, менее
-						15.000 рублей — 600 рублей + 50 ₽ / км от МКАД
-								</li>
-								<li class="list-pages__item">Перемещение между магазинами — бесплатно;</li>
-								<li class="list-pages__item">В день заказа по Москве в пределах МКАД — 1.000 рублей</li>
-								<li class="list-pages__item">
-									По регионам России транспортными: компаниями СДЭК, Деловые Линии, DHL,
-						Достависта, ТК Виктория, почта России и другие, в каждый регион рассчитывается отдельно
-								</li>
-							</ul>
-						</div>
-						<div class="method__item">
-							<h4 class="method__subtitle subtitle subtitle">Сроки доставки</h4>
-							<ul class="method__list list-pages">
-								<li class="list-pages__item">Доставка по МСК и МО — в течение 3 рабочих дней</li>
-								<li class="list-pages__item">Доставка по МСК и МО — в течение 3 рабочих дней</li>
-								<li class="list-pages__item">Доставка по МСК и МО — в течение 3 рабочих дней</li>
-								<li class="list-pages__item">Доставка по МСК и МО — в течение 3 рабочих дней</li>
-								<li class="list-pages__item">
-									По регионам России — в течение 10 работчих дней, в зависимости от
-						удаленности
-						региона
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section class="delivery-page__paymethod method">
-					<div class="method__container">
-						<h3 class="method__title title-40">Гарантия и возврат</h3>
-						<h4 class="method__subtitle subtitle">Гарантия</h4>
-						<div class="method__item item-gap">
-							<p class="method__text">
-								Мы предоставляем гарантию на все дроны и комплектующие, приобретённые в нашем
-					магазине:
-							</p>
-							<ul class="method__list list-pages">
-								<li class="list-pages__item">На дроны: от 6 до 12 месяцев в зависимости от модели</li>
-								<li class="list-pages__item">
-									На комплектующие и запчасти - 6 месяцев, если иное не указано в документации
-						производителя
-								</li>
-							</ul>
-							<p class="method__text">
-								Гарантия распространяется на заводские дефекты, повлекшие за собой неисправность
-					устройства при соблюдении условий эксплуатации, указанных в инструкции. Гарантия не распространяется на
-					случаи:
-							</p>
-							<ul class="method__list list-pages">
-								<li class="list-pages__item">
-									Механические повреждения, вызванные падениями, столкновениями и прочими
-						внешними воздействиями
-								</li>
-								<li class="list-pages__item">Повреждения вследствие неправильной сборки или использования</li>
-								<li class="list-pages__item">Попадание влаги при отсутствии влагозащиты</li>
-								<li class="list-pages__item">Использование неоригинальных комплектующих</li>
-								<li class="list-pages__item">Независимые попытки ремонта</li>
-								<li class="list-pages__item">Иные случаи нецелевого использования товара</li>
-							</ul>
-							<p class="method__text">
-								Гарантия распространяется на заводские дефекты, повлекшие за собой неисправность
-					устройства при соблюдении условий эксплуатации, указанных в инструкции. Гарантия не распространяется на
-					случаи:
-							</p>
-						</div>
-						<h4 class="method__subtitle subtitle">Возврат товара</h4>
-						<div class="method__item item-gap">
-							<p class="method__text">
-								Вы можете вернуть или обменять товар надлежащего качества в течение 7 дней после
-					получения, если:
-							</p>
-							<ul class="method__list list-pages">
-								<li class="list-pages__item">Он не использовался</li>
-								<li class="list-pages__item">Сохранены товарный вид, упаковка, пломбы и документы</li>
-								<li class="list-pages__item">
-									Товар не входит в перечень невозвратных (например, кабели, батареи и
-						элементы питания в распечатанном виде)
-								</li>
-							</ul>
-							<p class="method__text">Если товар оказался с дефектом, вы имеете право:</p>
-							<ul class="method__list list-pages">
-								<li class="list-pages__item">
-									Механические повреждения, вызванные падениями, столкновениями и прочими
-						внешними воздействиями
-								</li>
-								<li class="list-pages__item">Заменить его на аналогичный</li>
-								<li class="list-pages__item">Потребовать ремонт или устранение недостатков</li>
-								<li class="list-pages__item">Получить возврат денежных средств</li>
-							</ul>
-							<p class="method__text">
-								Возврат средств осуществляется в течение 10 рабочих дней после получения товара на
-					склад и подтверждения причин возврата
-							</p>
-							<p class="method__text">
-								Для оформления возврата свяжитесь с нами по контактной форме или через e-mail. Мы
-					вышлем инструкцию и
-					адрес для возврата
-							</p>
-						</div>
-					</div>
-				</section>
-				<section data-fls-feedback="" class="pages__feedback feedback-page">
-					<div class="feedback-page__container">
-						<div class="feedback-page__content">
-							<div class="feedback-page__column">
-								<h3 class="feedback-page__title title-40">Остались вопросы?</h3>
-								<p class="feedback-page__text">
-									Свяжитесь с нами или оставьте свои данные в форме обратной связи, и мы с
-					радостью проконсультируем вас
-								</p>
-								<form class="feedback-page__form" data-fls-form="ajax" data-fls-form-popup="popup" method="POST" action="#">
-									<div data-fls-grid="" class="feedback-page__body">
-										<input data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" data-fls-input-mask="+7(999) 999-9999" required type="tel" name="form[phone]" data-fls-form-errtext="Введите номер" placeholder="Телефон" class="feedback-page__input">
-										<input data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" type="text" name="form[name]" placeholder="Имя" class="feedback-page__input">
-										<button data-fls-grid-col="4" data-fls-grid-col-tablet="6" data-fls-grid-col-small="12" type="submit" class="feedback-page__button button">Оставить
-							заявку</button>
-										<label data-fls-grid-col="8" data-fls-grid-col-tablet="12" data-fls-checkbox="" class="feedback-page__checkbox checkbox">
-											<input required data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[privacy-check]">
-											<span class="checkbox__text --icon-check">
-												Нажимая кнопку, я даю согласие на обработку персональных
-								данных, а
-								также
-								подтверждаю, что ознакомлен с Политикой конфиденциальности
-											</span>
-										</label>
-									</div>
-								</form>
-							</div>
-							<div class="feedback-page__column feedback-page__column--cover">
-								<picture>
-									<source media="(max-width: 600px)" srcset="./assets/img/feedback-600.webp 1x,./assets/img/feedback-600-1x.webp 1x" type="image/webp">
-									<source media="(max-width: 1200px)" srcset="./assets/img/feedback-1200.webp 1x,./assets/img/feedback-1200-1x.webp 1x" type="image/webp">
-									<img alt="Изображение" src="./assets/img/feedback.webp" srcset="./assets/img/feedback.webp 1x,./assets/img/feedback-1x.webp 1x">
-								</picture>
-							</div>
-						</div>
-					</div>
-				</section>
+				</div>
 			</main>
 			<footer data-fls-footer="" class="footer">
 				<div class="footer__container">

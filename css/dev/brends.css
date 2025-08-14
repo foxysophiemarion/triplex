@@ -17,9 +17,6 @@
 .brends__slide img {
   width: 100%;
 }
-.brends__slide:hover {
-  background-color: var(--bg-color2);
-}
 
 .swiper-button-preview,
 .swiper-button-nextus {
@@ -34,11 +31,6 @@
   padding: 0.4375rem 0.625rem;
   border: 0.0625rem solid var(--main-color);
   transition: background-color 0.3s, color 0.3s;
-}
-.swiper-button-preview:hover,
-.swiper-button-nextus:hover {
-  background-color: var(--main-color);
-  color: var(--white-text);
 }
 
 .swiper-button-preview {
@@ -113,5 +105,16 @@
   .swiper-button-preview,
   .swiper-button-nextus {
     padding-left: 0.625rem;
+  }
+}
+
+@media (any-hover: hover) {
+  .brends__slide:hover {
+    background-color: var(--bg-color2);
+  }
+  .swiper-button-preview:hover,
+  .swiper-button-nextus:hover {
+    background-color: var(--main-color);
+    color: var(--white-text);
   }
 }

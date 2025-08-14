@@ -113,9 +113,6 @@
   color: var(--button-color);
   opacity: 0;
 }
-.select__option--icon-check:hover::before {
-  opacity: 1;
-}
 .select__row {
   display: inline-flex;
   align-items: center;
@@ -158,5 +155,8 @@
 @media (any-hover: hover) {
   .select__option--icon-check:hover {
     background: var(--bg-color2);
+  }
+  .select__option--icon-check:hover::before {
+    opacity: 1;
   }
 }
