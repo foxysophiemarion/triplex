@@ -25,3 +25,23 @@ import "./app.min.js";
     });
   });
 })();
+const viewPass = () => {
+  document.addEventListener("click", function(e) {
+    let targetElement = e.target;
+    if (targetElement.closest("[data-fls-input-viewpass]")) {
+      let button = targetElement.closest("[data-fls-input-viewpass]");
+      let container = button.closest(".tab-contact__fields");
+      let inputs = container.querySelectorAll('input[type="password"], input[type="text"]');
+      let isActive = button.classList.contains("--viewpass-active");
+      let inputType = isActive ? "password" : "text";
+      let buttonTextShow = "Показать пароль";
+      let buttonTextHide = "Скрыть пароль";
+      inputs.forEach((input) => {
+        input.setAttribute("type", inputType);
+      });
+      button.classList.toggle("--viewpass-active");
+      button.textContent = isActive ? buttonTextShow : buttonTextHide;
+    }
+  });
+};
+document.querySelector("[data-fls-input-viewpass]") ? window.addEventListener("load", viewPass) : null;
