@@ -498,7 +498,7 @@
 }
 
 @media (any-hover: hover) {
-  .tabs-profile__title:hover {
+  .tabs-profile__title:hover:not(.--tab-active) {
     color: var(--main-color);
     background-color: var(--product-color-2);
   }
